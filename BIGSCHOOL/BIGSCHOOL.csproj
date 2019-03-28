@@ -205,9 +205,20 @@
     <Compile Include="Migrations\201903280206588_BigSchoolModel.Designer.cs">
       <DependentUpon>201903280206588_BigSchoolModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903280236260_CreateTableCourse.cs" />
+    <Compile Include="Migrations\201903280236260_CreateTableCourse.Designer.cs">
+      <DependentUpon>201903280236260_CreateTableCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903280237482_PopulateCategoryTable.cs" />
+    <Compile Include="Migrations\201903280237482_PopulateCategoryTable.Designer.cs">
+      <DependentUpon>201903280237482_PopulateCategoryTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -287,6 +298,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903280206588_BigSchoolModel.resx">
       <DependentUpon>201903280206588_BigSchoolModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903280236260_CreateTableCourse.resx">
+      <DependentUpon>201903280236260_CreateTableCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903280237482_PopulateCategoryTable.resx">
+      <DependentUpon>201903280237482_PopulateCategoryTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
