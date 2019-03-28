@@ -21,7 +21,7 @@ namespace BIGSCHOOL.Controllers
         public List<Category> Categories { get; private set; }
 
 
-        // GET: Courses
+        // GET: Coursesggg
         public ActionResult Create()
         {
             var viewModel = new CourseViewModel
