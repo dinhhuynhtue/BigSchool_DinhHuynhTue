@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BIGSCHOOL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,12 @@ namespace BIGSCHOOL.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext dbContext;
+
+        public HomeController()
+        {
+            dbContext = new ApplicationDbContext();
+        }
         public ActionResult Index()
         {
             return View();

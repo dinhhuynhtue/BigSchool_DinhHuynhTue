@@ -4497,21 +4497,21 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default .navbar-link:hover {
-  color: #333333;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .navbar-inverse {
-  background-color: #222222;
-  border-color: #080808;
+  background-color: #f5b623;
+  border-color: #161111;
 }
 
 .navbar-inverse .navbar-brand {
-  color: #999999;
+  color: #333333;
 }
 
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
-  color: #ffffff;
+  color: #000;
   background-color: transparent;
 }
 
