@@ -3,7 +3,7 @@ namespace BIGSCHOOL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class BIGSCHOOLModel : DbMigration
+    public partial class BigSchool : DbMigration
     {
         public override void Up()
         {

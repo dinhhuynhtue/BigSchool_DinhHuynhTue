@@ -13,13 +13,13 @@ namespace BIGSCHOOL.Controllers
     {
        
         private readonly ApplicationDbContext dbContext;
-        
-         public CoursesController ()
+
+        public CoursesController ()
         {
             dbContext = new ApplicationDbContext();
         }
 
-        
+     
 
         public ActionResult Create()
         {
@@ -29,6 +29,7 @@ namespace BIGSCHOOL.Controllers
             };
             return View(viewModel);
         }
+         
         // GET: Coursesggg
         [Authorize]
         [HttpPost]

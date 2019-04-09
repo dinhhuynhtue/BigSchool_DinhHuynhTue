@@ -4501,17 +4501,17 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse {
-  background-color: #f5b623;
-  border-color: #161111;
+    background-color: #161111;
+    border-color: #ffd03c;
 }
 
 .navbar-inverse .navbar-brand {
-  color: #333333;
+  color: #ffe730;
 }
 
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
-  color: #000;
+  color: #ffc800;
   background-color: transparent;
 }
 

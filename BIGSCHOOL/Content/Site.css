@@ -1,4 +1,4 @@
-﻿body {
+﻿    body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -21,4 +21,21 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+/**/
+.course{
+    list-style: none;
+}
+.course >li .date{
+    text-align: center;
+    background-color: #ff201b;
+    color: white;
+    width: 60px;
+    border-radius: 8px;
+    position:absolute;
+}
+.course >li .details{
+    position:relative;
+    top:0;
+    left: 70px;
 }
