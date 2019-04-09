@@ -25,6 +25,7 @@ textarea {
 /**/
 .course{
     list-style: none;
+    list-style-position:outside;
 }
 .course >li .date{
     text-align: center;
@@ -38,4 +39,12 @@ textarea {
     position:relative;
     top:0;
     left: 70px;
+}
+.course >li .action{
+    display:none;
+    left:70px;
+    position:relative;
+}
+.course >li:hover .action{
+    display:block;
 }

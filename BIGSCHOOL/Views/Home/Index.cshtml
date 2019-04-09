@@ -1,13 +1,13 @@
-﻿@model IEnumerable<BIGSCHOOL.Models.Course >
+﻿@model BIGSCHOOL.Models.ViewModels.CoursesViewModels
 @{
     ViewBag.Title = "Home Page";
 }
 
-<div class="row" >
+
     <ul class="course" style="margin-top:15px;">
-        @foreach (var course  in Model)
+        @foreach (var course in Model.UpComingCourses)
         {
-            <li style="margin-top:15px;">
+            <li style="padding:20px;">
                 <div class="date">
                     <div class="month">
                         @course.DateTime.ToString("MM")
@@ -17,13 +17,26 @@
                     </div>
                 </div>
                 <div class="details">
-                    <span class="lecturer">
-                        @course.Lecturer.Name
-                    </span>
-                    <span class="category">
-                        @course.Category.Name
-                    </span>
-                    <button data-course-id ="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
+                    <p>
+                        <span class="lecturer">
+                            @course.Lecturer.Name
+                            @if (Model.ShowAction)
+                            {
+                                <button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>
+                            }
+                        </span>
+                    </p>
+                    
+                    <p>
+                        <span class="category">
+                            @course.Category.Name
+                        </span>
+                        @if (Model.ShowAction)
+                        {
+                            <button data-course-id="@course.Id " class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
+                        }
+                    </p>
+                    
                 </div>
             </li>
         }
@@ -45,8 +58,20 @@
                     alert("Somethings failed !");
                 });
         });
+
+        $(".js-toggle-follow").click(function (e) {
+            var button = $(e.target);
+            $.post("api/followings", { followeeId: button.attr("data-user-id") })
+                .done(function () {
+                    button
+                        .removeClass("btn-default")
+                        .text("Following");
+                })
+                .fail(function () {
+                    alert("Somethings failed !");
+                });
+        });
     });
     </script>    
     
   }
-</div>

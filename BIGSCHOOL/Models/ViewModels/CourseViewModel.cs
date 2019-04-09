@@ -7,8 +7,10 @@ using System.Web;
 
 namespace BIGSCHOOL.Models.ViewModels
 {
-    public class CourseViewModel
+    public class CourseViewModels
     {
+        public int Id { get; set; }
+
         [Required]
         public string Place { get; set; }
         [Required]
@@ -25,6 +27,11 @@ namespace BIGSCHOOL.Models.ViewModels
         public DateTime GetDateTime()
         {
             return DateTime.Parse(string.Format("{0} {1}", Date, Time));
+        }
+        public string Heading { get; set; }
+        public string Action
+        {
+            get { return (Id != 0) ? "Update" : "Create"; }
         }
     }
 }
