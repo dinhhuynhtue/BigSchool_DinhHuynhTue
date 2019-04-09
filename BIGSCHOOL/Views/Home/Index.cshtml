@@ -3,11 +3,11 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="row" style="margin-top:15px;">
-    <ul class="course">
+<div class="row" >
+    <ul class="course" style="margin-top:15px;">
         @foreach (var course  in Model)
         {
-            <li>
+            <li style="margin-top:15px;">
                 <div class="date">
                     <div class="month">
                         @course.DateTime.ToString("MM")
@@ -23,9 +23,30 @@
                     <span class="category">
                         @course.Category.Name
                     </span>
+                    <button data-course-id ="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
                 </div>
             </li>
         }
     </ul>
-
+@section scripts
+{
+<script>
+    $(document).ready(function(){
+        $(".js-toggle-attendance").click(function (e) {
+            var button = $(e.target);
+            $.post("api/attendances", { courseId: button.attr("data-course-id") })
+                .done(function () {
+                    button
+                        .removeClass("btn-default")
+                        .addClass("btn-info")
+                        .text("Going");
+                })
+                .fail(function () {
+                    alert("Somethings failed !");
+                });
+        });
+    });
+    </script>    
+    
+  }
 </div>

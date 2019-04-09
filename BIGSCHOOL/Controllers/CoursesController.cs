@@ -19,16 +19,16 @@ namespace BIGSCHOOL.Controllers
             dbContext = new ApplicationDbContext();
         }
 
-     
 
-        public ActionResult Create()
-        {
-            var viewModel = new CourseViewModel
-            {
-                Categories = dbContext.Categories.ToList()
-            };
-            return View(viewModel);
-        }
+        //[Authorize]
+        //public ActionResult Create()
+        //{
+        //    var viewModel = new CourseViewModel
+        //    {
+        //        Categories = dbContext.Categories.ToList()
+        //    };
+        //    return View(viewModel);
+        //}
          
         // GET: Coursesggg
         [Authorize]
