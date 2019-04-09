@@ -22,10 +22,13 @@ namespace BIGSCHOOL.Controllers
         [HttpPost]
         public IHttpActionResult Attend([FromBody] int courseId)
         {
+            var userId = User.Identity.GetUserId();
+            if (dbContext.Attendances.Any(a => a.AttendanceID == userId && a.CourseId == courseId))
+                return BadRequest("The Attendance already exists !");
             var attendance = new Attendance
             {
                 CourseId = courseId,
-                AttendanceID = User.Identity.GetUserId()
+                AttendanceID= userId
             };
 
             dbContext.Attendances.Add(attendance);
