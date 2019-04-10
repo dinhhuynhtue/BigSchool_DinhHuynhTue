@@ -1,4 +1,6 @@
-﻿@model BIGSCHOOL.Models.ViewModels.CoursesViewModels
+﻿@using Microsoft.AspNet.Identity;
+@using BIGSCHOOL.Models
+@model BIGSCHOOL.Models.ViewModels.CoursesViewModels
 @{
     ViewBag.Title = "Attending";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -34,10 +36,23 @@
                     </span>
                     @if (Model.ShowAction)
                     {
-                        <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance"></button>
+                        var User_ID = @User.Identity.GetUserId();
+                        ApplicationDbContext dbContext = new ApplicationDbContext();
+                        bool isGoing = dbContext.Attendances.Any(a => a.CourseId == course.Id && a.AttendeeId == User_ID);
+
+                        <div>
+                            @if (!isGoing)
+                            {
+                                <button data-course-id="@course.Id " class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
+                            }
+                            else
+                            {
+                                <span class="text-danger">DaThamGia</span>
+                            }
+                        </div>
                     }
                 </p>
-               
+
 
 
             </div>

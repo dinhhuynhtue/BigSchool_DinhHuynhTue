@@ -61,7 +61,7 @@ namespace BIGSCHOOL.Controllers
             var userId = User.Identity.GetUserId();
 
             var courses = dbContext.Attendances
-                .Where(a => a.AttendanceID == userId)
+                .Where(a => a.AttendeeId == userId)
                 .Select(a => a.Course)
                 .Include(l => l.Lecturer)
                 .Include(l => l.Category)
@@ -128,6 +128,24 @@ namespace BIGSCHOOL.Controllers
             dbContext.SaveChanges();
 
             return RedirectToAction("Index", "Home");
+        }
+
+        [Authorize]
+        public ActionResult Following()
+        {
+            var userId = User.Identity.GetUserId();
+
+            var courses = dbContext.Followings
+                .Where(a => a.FollowerId  == userId)
+                .Select(a => a.Followee)
+                .ToList();
+
+            var viewModel = new CoursesViewModels
+            {
+                UpComingFollowing = courses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
         }
     }
 }
