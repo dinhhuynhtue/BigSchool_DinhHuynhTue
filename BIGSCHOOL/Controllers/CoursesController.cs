@@ -52,7 +52,7 @@ namespace BIGSCHOOL.Controllers
             };
             dbContext.Courses.Add(cours);
             dbContext.SaveChanges();
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Mine","Courses");
         }
 
         [Authorize]
@@ -81,7 +81,7 @@ namespace BIGSCHOOL.Controllers
             var userId = User.Identity.GetUserId();
 
             var courses = dbContext.Courses
-                .Where(c => c.LecturerId == userId && c.DateTime > DateTime.Now)
+                .Where(c => c.LecturerId == userId && c.DateTime > DateTime.Now  && c.IsCancled== false)
                 .Include(l => l.Lecturer)
                 .Include(c => c.Category)
                 .ToList();
